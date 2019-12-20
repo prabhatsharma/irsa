@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: irsa
+  labels:
+    name: irsa
+spec:
+  serviceAccount: my-serviceaccount
+  containers:
+  - name: irsa
+    image: hiprabhat/irsa:2.521.0
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 3000
